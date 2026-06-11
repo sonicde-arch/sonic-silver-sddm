@@ -1,16 +1,18 @@
-# Maintainer: artist for XLibre <artist4xlibre@proton.me>
+# Maintainer: callmetango
+# Contributor: artist <artist@artixlinux.org>
 
 pkgname=sonic-silver-sddm
-_pkgname="${pkgname#*-}"
+_pkgname=silver-sddm
 pkgver=1.0.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Sonic Silver SDDM Theme (KDE Plasma 6)"
 arch=(x86_64)
 url='https://github.com/Sonic-DE/silver-sddm'
 license=('LGPL-2.0-or-later')
 depends=(sonic-workspace)
 groups=(sonicde)
-source=("${pkgver}-${_pkgname}.tag.gz::${url}/archive/refs/tags/${pkgver}.tar.gz")
+source=("$pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/${pkgver}.tar.gz")
+sha256sums=('3c32317306a723a0cdbffb41ebb0e817e46527c8f2ebdfd1cd1f304ee6d3a235')
 
 package() {
   cd "${_pkgname}-${pkgver}"
@@ -21,5 +23,3 @@ package() {
   install -Dm644 -t "$pkgdir/usr/share/doc/$pkgname" CHANGELOG README.md
   install -Dm644 -t "$pkgdir/usr/share/licenses/$pkgname" LICENSE.md
 }
-
-sha256sums=('3c32317306a723a0cdbffb41ebb0e817e46527c8f2ebdfd1cd1f304ee6d3a235')
